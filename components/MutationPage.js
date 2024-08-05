@@ -5,7 +5,6 @@ import { addIncome, addExpense } from "../redux/actions";
 import styles from "../styles/MutationPageStyles";
 
 const MutationPage = () => {
-  const saldo = useSelector((state) => state.saldo);
   const mutasiList = useSelector((state) => state.mutasiList);
   const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
@@ -45,7 +44,7 @@ const MutationPage = () => {
 
       <Modal
         visible={modalVisible}
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         onRequestClose={() => setModalVisible(false)}
       >
