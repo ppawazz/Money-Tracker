@@ -6,7 +6,6 @@ import styles from "../styles/MutationPageStyles";
 import TransactionItem from "../components/TransactionItem"; // Import komponen baru
 
 const MutationPage = () => {
-  const saldo = useSelector((state) => state.saldo);
   const mutasiList = useSelector((state) => state.mutasiList);
   const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
