@@ -3,7 +3,7 @@ import { View, Text, Button, TextInput, FlatList, Modal } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { addIncome, addExpense } from "../redux/actions";
 import styles from "../styles/MutationPageStyles";
-import TransactionItem from "../components/TransactionItem"; // Import komponen baru
+import TransactionItem from "../components/TransactionItem";
 
 const MutationPage = () => {
   const mutasiList = useSelector((state) => state.mutasiList);
