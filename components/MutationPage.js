@@ -3,8 +3,10 @@ import { View, Text, Button, TextInput, FlatList, Modal } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { addIncome, addExpense } from "../redux/actions";
 import styles from "../styles/MutationPageStyles";
+import TransactionItem from "../components/TransactionItem"; // Import komponen baru
 
 const MutationPage = () => {
+  const saldo = useSelector((state) => state.saldo);
   const mutasiList = useSelector((state) => state.mutasiList);
   const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
@@ -44,7 +46,7 @@ const MutationPage = () => {
 
       <Modal
         visible={modalVisible}
-        animationType="fade"
+        animationType="slide"
         transparent={true}
         onRequestClose={() => setModalVisible(false)}
       >
@@ -77,20 +79,11 @@ const MutationPage = () => {
       <FlatList
         data={mutasiList.slice().reverse()}
         renderItem={({ item }) => (
-          <View
-            style={[
-              styles.mutationItem,
-              {
-                backgroundColor:
-                  item.type === "pemasukan" ? "lightgreen" : "lightcoral",
-              },
-            ]}
-          >
-            <Text>
-              {item.type === "pemasukan" ? "+" : "-"} Rp {item.amount}
-            </Text>
-            <Text>{item.description}</Text>
-          </View>
+          <TransactionItem
+            type={item.type}
+            amount={item.amount}
+            description={item.description}
+          />
         )}
         keyExtractor={(item, index) =>
           `${item.amount}-${item.description}-${index}`
