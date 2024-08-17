@@ -27,7 +27,7 @@ const AppNavigator = () => {
 
               return <Ionicons name={iconName} size={size} color={color} />;
             },
-            tabBarActiveTintColor: "blue",
+            tabBarActiveTintColor: "Aqua",
             tabBarInactiveTintColor: "gray",
           })}
         >
